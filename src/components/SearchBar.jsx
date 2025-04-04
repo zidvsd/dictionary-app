@@ -1,10 +1,18 @@
 import React from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ input, setInput }) => {
+  const handleKeyUp = (e) => {
+    if (e.key === "Enter") {
+      const newInput = e.target.value;
+      setInput(newInput);
+      console.log("Enter key pressed", input);
+    }
+  };
   return (
     <div className="w-full">
       <label className="relative w-full">
         <input
+          onKeyUp={handleKeyUp}
           type="search"
           required
           placeholder="Search"
