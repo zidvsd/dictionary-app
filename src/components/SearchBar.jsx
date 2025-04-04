@@ -1,17 +1,22 @@
 import React from "react";
-
+import { useState } from "react";
 const SearchBar = ({ input, setInput }) => {
+  const [searchValue, setSearchValue] = useState("");
   const handleKeyUp = (e) => {
     if (e.key === "Enter") {
-      const newInput = e.target.value;
-      setInput(newInput);
-      console.log("Enter key pressed", input);
+      setInput(searchValue.trim()); // Use local state value and trim whitespace
+      setSearchValue("");
     }
+  };
+  const handleChange = (e) => {
+    setSearchValue(e.target.value); // Update local state on change
   };
   return (
     <div className="w-full">
       <label className="relative w-full">
         <input
+          value={searchValue}
+          onChange={handleChange}
           onKeyUp={handleKeyUp}
           type="search"
           required

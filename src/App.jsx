@@ -4,7 +4,7 @@ import ThemeProvider from "./context/ThemeContext";
 const App = () => {
   return (
     <ThemeProvider>
-      <DictionaryPage />;
+      <DictionaryPage />
     </ThemeProvider>
   );
 };
