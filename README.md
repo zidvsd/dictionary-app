@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>🌐 Live Demo</h1>
-    <p>Check it out on Vercel: https://dictionary-api-app.vercel.app/</p>
+    <p>Check it out on Vercel: https://dictionary-app-tau-ochre.vercel.app/</p>
     <h1>Dictionary API App</h1>
     <p>An easy-to-use and visually appealing dictionary app that fetches word definitions, phonetics, and example usage using a public API. Designed for learners and curious minds who want instant word information on any device.</p>
     <h2>Features</h2>
