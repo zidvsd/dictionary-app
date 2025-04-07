@@ -3,12 +3,20 @@ import dictionarylogo from "../assets/images/dictionary-favicon.png";
 import FontSwitch from "./FontSwitch";
 import DarkModeToggle from "./DarkModeToggle";
 import { useState } from "react";
-const Navbar = () => {
+const Navbar = ({ navigate }) => {
+  const handleHomePage = () => {
+    navigate("/");
+  };
   const [font, setFont] = useState("Inter");
   return (
     <nav className="flex flex-row justify-between items-center">
       <div className="left-nav">
-        <img src={dictionarylogo} className="size-16 cursor-pointer" alt="" />
+        <img
+          onClick={handleHomePage}
+          src={dictionarylogo}
+          className="size-16 cursor-pointer"
+          alt=""
+        />
       </div>
       <div className="right-nav flex flex-row  justify-end gap-x-4 items-center">
         <FontSwitch font={font} setFont={setFont} />

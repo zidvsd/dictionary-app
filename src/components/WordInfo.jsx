@@ -1,7 +1,22 @@
 import React from "react";
-
-const WordInfo = ({ wordData, input, synonym }) => {
-  console.log(wordData);
+import { useNavigate } from "react-router-dom";
+const WordInfo = ({
+  navigate,
+  wordData,
+  input,
+  synonym,
+  setSynonym,
+  fetchApi,
+  setInput,
+}) => {
+  const handleSynonym = (synonym) => {
+    // Set synonym and also update the input state to trigger a new fetch
+    setSynonym(synonym);
+    setInput(synonym); // Update the input to the synonym so it re-fetches the word data
+  };
+  const navigateSynonym = (synonym) => {
+    navigate(`/${synonym}`);
+  };
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -42,11 +57,22 @@ const WordInfo = ({ wordData, input, synonym }) => {
                 <span className="dark:text-whiteCustom opacity-50 text-lg">
                   Synonyms
                 </span>
-                {word.synonyms.map((synonym, i) => (
-                  <a href={synonym} key={i} className="text-violet-600">
-                    {synonym}
-                  </a>
-                ))}
+                {word.synonyms.length > 0 ? (
+                  word.synonyms.map((synonym, i) => (
+                    <a
+                      onClick={() => {
+                        handleSynonym(synonym);
+                        navigateSynonym(synonym);
+                      }}
+                      key={i}
+                      className="text-violet-600"
+                    >
+                      {synonym}
+                    </a>
+                  ))
+                ) : (
+                  <span className="text-violet-600">No synonym found</span>
+                )}
               </div>
             </div>
           ))}

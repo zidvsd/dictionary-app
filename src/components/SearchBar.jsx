@@ -1,11 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const SearchBar = ({ input, setInput }) => {
+  const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState("");
   const handleKeyUp = (e) => {
     if (e.key === "Enter") {
-      setInput(searchValue.trim()); // Use local state value and trim whitespace
-      setSearchValue("");
+      const trimmed = searchValue.trim();
+      if (trimmed) {
+        setInput(trimmed);
+        navigate(`/${trimmed}`);
+        setSearchValue("");
+      }
     }
   };
   const handleChange = (e) => {

@@ -2,15 +2,21 @@ import React, { useState, useEffect } from "react";
 import Error from "./ErrorMessage";
 import WordInfo from "./WordInfo";
 const WordCard = ({
+  clearBodyContent,
+  navigate,
   input,
   fetchApi,
   error,
   setError,
   synonym,
   setSynonym,
+  setInput,
 }) => {
   const [wordData, setWordData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const handleHomePage = () => {
+    clearBodyContent();
+  };
   useEffect(() => {
     const fetchWord = async () => {
       setLoading(true);
@@ -36,7 +42,7 @@ const WordCard = ({
   }, [input, fetchApi, setError]);
 
   return (
-    <div className="mt-8">
+    <div className="mt-8 body-content">
       {loading ? (
         <p className="text-blackCustom dark:text-violet-600">Loading...</p> // Show loading message while fetching data
       ) : error ? (
@@ -44,7 +50,15 @@ const WordCard = ({
       ) : (
         wordData && (
           <>
-            <WordInfo wordData={wordData} input={input} synonym={synonym} />
+            <WordInfo
+              navigate={navigate}
+              fetchApi={fetchApi}
+              wordData={wordData}
+              input={input}
+              setInput={setInput}
+              synonym={synonym}
+              setSynonym={setSynonym}
+            />
           </>
         )
       )}
