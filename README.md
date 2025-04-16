@@ -27,7 +27,7 @@
     <h3>Steps</h3>
     <ol>
         <li>Clone the repository:
-            <pre><code>git clone https://github.com/yourusername/dictionary-api-app.git</code></pre>
+            <pre><code>git clone https://github.com/zidvsd/dictionary-api-app.git</code></pre>
         </li>
         <li>Navigate to the project directory:
             <pre><code>cd dictionary-api-app</code></pre>
